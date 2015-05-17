@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof (AudioSource))]
+//[RequireComponent (typeof (AudioSource))]
 public class Enemy : Entity {
 
 	public float expOnDeath;
@@ -23,7 +23,7 @@ public class Enemy : Entity {
 
 	public override void Die ()
 	{
-		GetComponent<AudioSource>().Play();
+	//	GetComponent<AudioSource>().Play();
 		player.AddExperience (expOnDeath);
 		base.Die ();
 	}

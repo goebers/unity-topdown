@@ -13,7 +13,9 @@ public class PlayerController : MonoBehaviour {
 	private Quaternion targetRotation;
 
 	//Components
-	public Gun gun;
+	public Transform handHold;
+	public Gun[] guns;
+	public Gun currentGun;
 	private CharacterController controller;
 	private Camera cam;
 
@@ -21,19 +23,33 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		controller = GetComponent<CharacterController> ();
 		cam = Camera.main;
+
+		/*EquipGun (0);*/
 	}
 
 	void Update () {
 		ControlMouse ();
 		//ControlWASD ();
 
-		if (Input.GetButtonDown ("Shoot")) {
-			gun.Shoot ();
-		} else if (Input.GetButton ("Shoot")) {
-			gun.ShootContinuous();
+
+		if (currentGun) {
+			if (Input.GetButtonDown ("Shoot")) {
+				currentGun.Shoot ();
+			} else if (Input.GetButton ("Shoot")) {
+				currentGun.ShootContinuous ();
+			}
 		}
 	}
 
+/*	void EquipGun(int i){
+		if (currentGun) {
+			Destroy (currentGun.gameObject);
+		}
+		currentGun = Instantiate (guns [i], handHold.position, handHold.rotation) as Gun;
+		currentGun.transform.parent = handHold;
+
+	} */
+	
 	void ControlMouse(){
 
 		Vector3 mousePos = Input.mousePosition;

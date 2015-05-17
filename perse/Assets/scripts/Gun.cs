@@ -6,6 +6,7 @@ public class Gun : MonoBehaviour {
 
 	public enum GunType{Semi, Burst, Auto};
 
+	public float gunID;
 	public LayerMask collisionMask;
 	public GunType gunType;
 	public float rpm;
