@@ -49,7 +49,7 @@ public class Gun : MonoBehaviour {
 		
 			nextPossibleShootTime = Time.time + secondsBetweenShots;
 
-			GetComponent<AudioSource>().Play();
+			GetComponent<AudioSource>().Play(); 
 
 			if (tracer) {
 				StartCoroutine("RenderTracer", ray.direction * shotDistance);

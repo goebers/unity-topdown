@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour {
 		//ControlWASD ();
 
 
+		
 		if (currentGun) {
 			if (Input.GetButtonDown ("Shoot")) {
 				currentGun.Shoot ();
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour {
 				currentGun.ShootContinuous ();
 			}
 		}
+
 	}
 
 /*	void EquipGun(int i){
@@ -56,6 +58,7 @@ public class PlayerController : MonoBehaviour {
 		mousePos = cam.ScreenToWorldPoint (new Vector3 (mousePos.x, mousePos.y, cam.transform.position.y - transform.position.y));
 		targetRotation = Quaternion.LookRotation (mousePos - new Vector3(transform.position.x,0,transform.position.z));
 		transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y,targetRotation.eulerAngles.y,rotationSpeed * Time.deltaTime);
+	
 
 		Vector3 input = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"));
 		Vector3 motion = input;
